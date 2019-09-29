@@ -14,129 +14,142 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<sdf version="1.4">
+<sdf version="1.5">
+  <model name="herkules_seabed">
+    <static>true</static>
+    <link name="seabed">
+      <collision name="seabed">
+        <pose>0 0 -60 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://herkules_seabed/meshes/herkules_seabed.dae</uri>
+            <scale>4.0 4.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </collision>
 
-<model name="ocean">
-  <static>true</static>
-  <link name="ocean_link">
+      <visual name="seabed">
+        <cast_shadows>true</cast_shadows>
+        <pose>0 0 -60 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://herkules_seabed/meshes/herkules_seabed.dae</uri>
+            <scale>4.0 4.0 1.0</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/sand.material</uri>
+            <name>UUVSimulator/SandAndStones</name>
+          </script>
+        </material>
+      </visual>
+    </link>
 
-  <visual name="ocean_surface">
-    <pose>0 0 0 0 0 0</pose>
-    <cast_shadows>false</cast_shadows>
-    <geometry>
-      <mesh>
-        <uri>file://Media/models/sea_surface_1000m_x_1000m.dae</uri>
-        <scale>2 2 2</scale>
-      </mesh>
-    </geometry>
-    <material>
-      <script>
-        <uri>file://Media/materials/scripts/waves.material</uri>
-        <name>UUVSimulator/SimpleWaves</name>
-      </script>
-    </material>
-  </visual>
+    <link name="ocean_link">
+      <visual name="surface">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>400 400 0.1</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/StaticWater</name>
+          </script>
+        </material>
+      </visual>
 
-  <visual name="ocean_below">
-    <pose>0 0 0 3.14 0 0</pose>
-    <cast_shadows>false</cast_shadows>
-    <geometry>
-      <mesh>
-        <uri>file://Media/models/sea_surface_1000m_x_1000m.dae</uri>
-        <scale>2 2 2</scale>
-      </mesh>
-    </geometry>
-    <material>
-      <script>
-        <uri>file://Media/materials/scripts/water.material</uri>
-        <name>UUVSimulator/StaticWater</name>
-      </script>
-    </material>
-  </visual>
+      <visual name="bouy">
+        <pose> -30 -25 -50 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://ocean/buoy_N.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </visual>
 
-  <visual name="seafloor">
-    <cast_shadows>false</cast_shadows>
-    <pose>0 0 -100 0 0 0</pose>
-    <geometry>
-      <box>
-        <size>2000 2000 .1</size>
-      </box>
-    </geometry>
-    <material>
-      <script>
-        <uri>file://Media/materials/scripts/sand.material</uri>
-        <name>UUVSimulator/SandAndStones</name>
-      </script>
-      <emissive>
-        0.6 0.6 0.6 1.0
-      </emissive>
-    </material>
-  </visual>
+      <collision name="bouy">
+        <pose> -30 -25 -50 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://ocean/buoy_N.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </collision>
 
-  <collision name="seafloor">
-    <pose>0 0 -100 0 0 0</pose>
-    <geometry>
-      <box>
-        <size>2000 2000 .1</size>
-      </box>
-    </geometry>
-  </collision>
+      <visual name="bottom">
+        <pose>0 0 -70.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>400 400 0.1</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/SeaWall</name>
+          </script>
+        </material>
+      </visual>
 
-  <visual name="north">
-    <pose>1000 0 -50 0 -1.5708 0</pose>
-    <geometry><plane><normal>0 0 1</normal><size>100 2000</size></plane></geometry>
-    <material>
-      <script>
-        <uri>file://Media/materials/scripts/water.material</uri>
-        <name>UUVSimulator/SeaWall</name>
-      </script>
-      <emissive>
-        0.6 0.6 0.6 1.0
-      </emissive>
-    </material>
-  </visual>
+      <visual name="north_wall">
+        <pose>0 200 -35.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>400 0.1 70</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/SeaWall</name>
+          </script>
+        </material>
+      </visual>
 
-  <visual name="south">
-    <pose>-1000 0 -50 0 1.5708 0</pose>
-    <geometry><plane><normal>0 0 1</normal><size>100 2000</size></plane></geometry>
-    <material>
-      <script>
-        <uri>file://Media/materials/scripts/water.material</uri>
-        <name>UUVSimulator/SeaWall</name>
-      </script>
-      <emissive>
-        0.6 0.6 0.6 1.0
-      </emissive>
-    </material>
-  </visual>
+      <visual name="south_wall">
+        <pose>0 -200 -35.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>400 0.1 70</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/SeaWall</name>
+          </script>
+        </material>
+      </visual>
 
-  <visual name="west">
-    <pose>0 1000 -50 1.5708 0 0</pose>
-    <geometry><plane><normal>0 0 1</normal><size>2000 100</size></plane></geometry>
-    <material>
-      <script>
-        <uri>file://Media/materials/scripts/water.material</uri>
-        <name>UUVSimulator/SeaWall</name>
-      </script>
-      <emissive>
-        0.6 0.6 0.6 1.0
-      </emissive>
-    </material>
-  </visual>
+      <visual name="east_wall">
+        <pose>200 0 -35.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 400 70</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/SeaWall</name>
+          </script>
+        </material>
+      </visual>
 
-  <visual name="east">
-    <pose>0 -1000 -50 -1.5708 0 0</pose>
-    <geometry><plane><normal>0 0 1</normal><size>2000 100</size></plane></geometry>
-    <material>
-      <script>
-        <uri>file://Media/materials/scripts/water.material</uri>
-        <name>UUVSimulator/SeaWall</name>
-      </script>
-      <emissive>
-        0.6 0.6 0.6 1.0
-      </emissive>
-    </material>
-  </visual>
-  </link>
-</model>
+      <visual name="west_wall">
+        <pose>-200 0 -35.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 400 70</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/SeaWall</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
 </sdf>

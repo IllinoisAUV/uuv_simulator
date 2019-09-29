@@ -2,6 +2,21 @@
 Changelog for package uuv_tutorial_seabed_world
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.12 (2019-05-23)
+-------------------
+
+0.6.11 (2019-03-21)
+-------------------
+
+0.6.10 (2019-02-28)
+-------------------
+
+0.6.9 (2019-02-26)
+------------------
+* Replace all gazebo dependencies for gazebo_dev
+  Signed-off-by: Musa Morena Marcusso Manhaes <Musa.Marcusso@de.bosch.com>
+* Contributors: Musa Morena Marcusso Manhaes
+
 0.6.8 (2019-02-14)
 ------------------
 

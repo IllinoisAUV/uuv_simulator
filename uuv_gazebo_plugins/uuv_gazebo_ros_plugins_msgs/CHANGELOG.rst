@@ -2,6 +2,21 @@
 Changelog for package uuv_gazebo_ros_plugins_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.12 (2019-05-23)
+-------------------
+
+0.6.11 (2019-03-21)
+-------------------
+
+0.6.10 (2019-02-28)
+-------------------
+* Fix errors from catkin_lint
+  Signed-off-by: Musa Morena Marcusso Manhaes <Musa.Marcusso@de.bosch.com>
+* Contributors: Musa Morena Marcusso Manhaes
+
+0.6.9 (2019-02-26)
+------------------
+
 0.6.8 (2019-02-14)
 ------------------
 

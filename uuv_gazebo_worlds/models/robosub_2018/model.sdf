@@ -1,0 +1,234 @@
+<?xml version="1.0" ?>
+<!-- Copyright (c) 2016 The UUV Simulator Authors.
+     All rights reserved.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<sdf version="1.5">
+  <model name="herkules_seabed">
+    <static>true</static>
+    <link name="seabed">
+      <collision name="seabed">
+        <pose>0 0 -60 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://herkules_seabed/meshes/herkules_seabed.dae</uri>
+            <scale>4.0 4.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="seabed">
+        <cast_shadows>true</cast_shadows>
+        <pose>0 0 -60 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://herkules_seabed/meshes/herkules_seabed.dae</uri>
+            <scale>4.0 4.0 1.0</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/sand.material</uri>
+            <name>UUVSimulator/SandAndStones</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+
+    <link name="ocean_link">
+      <visual name="surface">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>400 400 0.1</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/StaticWater</name>
+          </script>
+        </material>
+      </visual>
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <visual name="dice1">
+        <pose> -31 -35 -42 0 0 -0.4235</pose>
+        <geometry>
+          <mesh><uri>model://dice/dice1.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </visual>
+
+      <collision name="dice1">
+        <pose> -31 -35 -42 0 0 -0.4235</pose>
+        <geometry>
+          <mesh><uri>model://dice/dice1.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </collision>
+
+      <visual name="dice2">
+        <pose> -29 -30 -49 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://dice/dice2.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </visual>
+
+      <collision name="dice2">
+        <pose> -29 -30 -49 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://dice/dice2.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </collision>
+
+      <visual name="dice5">
+        <pose> -29 -36 -46 0 0 -0.6853</pose>
+        <geometry>
+          <mesh><uri>model://dice/dice5.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </visual>
+
+      <collision name="dice5">
+        <pose> -29 -30 -46 0 0 -0.6853</pose>
+        <geometry>
+          <mesh><uri>model://dice/dice5.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </collision>
+
+      <visual name="dice6">
+        <pose> -31 -31 -44 0 0  0.5235</pose>
+        <geometry>
+          <mesh><uri>model://dice/dice6.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </visual>
+
+      <collision name="dice6">
+        <pose> -31 -31 -44 0 0  0.5235</pose>
+        <geometry>
+          <mesh><uri>model://dice/dice6.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </collision>
+
+      <visual name="gold_chip">
+        <pose> -41 -38 -50 0 0 -1.57</pose>
+        <geometry>
+          <mesh><uri>model://robosub_2018/buy_gold_chip.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </visual>
+
+      <collision name="gold_chip">
+        <pose> -41 -38 -50 0 0 -1.57</pose>
+        <geometry>
+          <mesh><uri>model://robosub_2018/buy_gold_chip.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </collision>
+
+      <!-- <visual name="gold_chip">
+        <pose> --41 -38 -50 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://robosub_2018/buy_gold_chip.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </visual>
+
+      <collision name="gold_chip">
+        <pose> -41 -38 -50 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://robosub_2018/buy_gold_chip.dae</uri><scale>1 1 1</scale></mesh>
+        </geometry>
+      </collision> -->
+
+      <!--  -->
+      <!--  -->
+      <visual name="bottom">
+        <pose>0 0 -70.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>400 400 0.1</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/SeaWall</name>
+          </script>
+        </material>
+      </visual>
+
+      <visual name="north_wall">
+        <pose>0 200 -35.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>400 0.1 70</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/SeaWall</name>
+          </script>
+        </material>
+      </visual>
+
+      <visual name="south_wall">
+        <pose>0 -200 -35.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>400 0.1 70</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/SeaWall</name>
+          </script>
+        </material>
+      </visual>
+
+      <visual name="east_wall">
+        <pose>200 0 -35.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 400 70</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/SeaWall</name>
+          </script>
+        </material>
+      </visual>
+
+      <visual name="west_wall">
+        <pose>-200 0 -35.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 400 70</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/SeaWall</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
